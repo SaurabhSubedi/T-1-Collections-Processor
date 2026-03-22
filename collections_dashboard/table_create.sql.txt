@@ -1,0 +1,39 @@
+DROP TABLE IF EXISTS collection_data;
+CREATE TABLE collection_data (
+    id VARCHAR(255) PRIMARY KEY,
+    date DATE,
+    agent_name VARCHAR(255),
+    party_details VARCHAR(255),
+    non_ageing_outlet VARCHAR(255),
+    address TEXT,
+    stock_sb VARCHAR(100),
+    stock_sr VARCHAR(100),
+    stock_rara VARCHAR(100),
+    collection NUMERIC(12, 2),
+    collection_type VARCHAR(100),
+    closing_balance NUMERIC(12, 2),
+    remarks TEXT
+);
+
+drop table if exists party_collection_plans;
+
+CREATE TABLE party_collection_plans (
+    party_details TEXT PRIMARY KEY,
+    closing_amt NUMERIC(15, 2),
+    collection_plan NUMERIC(15, 2),
+    remarks TEXT
+);
+
+
+DROP TABLE if exists actual_collection;
+CREATE TABLE actual_collection (
+    id SERIAL PRIMARY KEY,
+    code TEXT,
+    address TEXT,
+    zone TEXT,
+    cash_cheque TEXT,
+    amount DECIMAL(15, 2),
+    agent TEXT,
+    date DATE,
+    party_details TEXT
+);
